@@ -62,8 +62,10 @@ def lagou_spider(url):
                 positionLables = '-'
             positionId = info['positionId']                 # 职位ID
             positionName = info['positionName']             # 职位名称
+            companyId = info['companyId']                   # 公司ID
             companyFullName = info['companyFullName']       # 公司全称
             companyShortName = info['companyShortName']     # 公司简称
+            industryField = info['industryField']           # 公司所属行业
             city = info['city']                             # 公司地点
             companySize = info['companySize']               # 公司规模
             education = info['education']                   # 学历要求
@@ -86,8 +88,10 @@ def lagou_spider(url):
             position.append(positionLables)
             position.append(companyLabelList)
 
+            position.append(companyId)
             position.append(companyShortName)
             position.append(companyFullName)
+            position.append(industryField)
             position.append(companySize)
             position.append(financeStage)
 
@@ -106,8 +110,8 @@ def save_excel(position_list):
     ws = wb.active
     ws.append(['岗位ID', '岗位名称', '学历要求', '薪水', '经验要求',
                '第一标签', '第二标签', '技术标签', '职业诱惑',
-               '公司简称', '公司全称', '公司规模', '融资情况',
-               '公司所在城市', '经度', '纬度'])
+               '公司ID', '公司简称', '公司全称', '公司所属行业', '公司规模',
+               '融资情况', '公司所在城市', '经度', '纬度'])
     for position in position_list:
         print(position)
         print(type(position))
