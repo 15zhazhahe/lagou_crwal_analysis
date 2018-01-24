@@ -67,11 +67,36 @@ def clean_companyLabelList(db, cursor):
     db.commit()
 
 
-db = pymysql.connect('localhost', 'root', '*****', 'lagou_crawl', charset='utf8')
+def clean_industryField(db, cursor):
+    '''
+    改变一下数据的表示形式
+    '''
+    sql = '''
+    select positionId,industryField from lagou_crawl.position_info
+    '''
+    id_industry = dict()
+    cursor.execute(sql)
+    for data in cursor.fetchall():
+        id_industry[data[0]] = data[1]
+    sql = '''
+    UPDATE lagou_crawl.position_info
+    SET industryField='%s'
+    WHERE positionId='%s'
+    '''
+    for key in id_industry.keys():
+        industry = id_industry[key]
+        industry = industry.replace(',', '·')
+        print(sql % (industry, key))
+        cursor.execute(sql % (industry, key))
+    db.commit()
+
+
+db = pymysql.connect('localhost', 'root', 'lvoe07', 'lagou_crawl', charset='utf8')
 cursor = db.cursor()
 
 # clean_salary(db, cursor)
-clean_companyLabelList(db, cursor)
+# clean_companyLabelList(db, cursor)
+clean_industryField(db, cursor)
 
 cursor.close()
 db.close()
