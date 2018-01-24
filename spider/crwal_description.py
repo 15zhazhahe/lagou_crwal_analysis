@@ -38,7 +38,7 @@ def get_position_id(cursor):
         position_id(list): 从数据库中获取的p_id
     """
     query_sql = '''
-    select positionId from lagou_crawl.posiition_info
+    select positionId from lagou_crawl.position_info
     '''
     cursor.execute(query_sql)
     position_id = list()

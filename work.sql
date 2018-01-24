@@ -24,4 +24,4 @@ create table posiition_info(
 )default charset=utf8;
 
 -- 加多一列表示职位的职责和要求
-alter table lagou_crawl.posiition_info add column job_description text;
+alter table lagou_crawl.position_info add column job_description text;

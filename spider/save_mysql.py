@@ -21,7 +21,7 @@ db = pymysql.connect('localhost', 'root', '******', 'lagou_crawl', charset='utf8
 cursor = db.cursor()
 # 插入数据的sql语句
 insert_sql = """
-    INSERT INTO lagou_crawl.posiition_info(
+    INSERT INTO lagou_crawl.position_info(
         positionId, positionName, education, salary,
         workyear, firstType, secondType, positionLables,
         companyLabelList, companyId, companyShortName,
