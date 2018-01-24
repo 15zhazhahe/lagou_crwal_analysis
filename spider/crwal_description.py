@@ -102,7 +102,7 @@ def save_mysql(db, cursor, position_id, descriptions):
     将获取到的详细信息存入到mysql
     """
     sql = '''
-    UPDATE lagou_crawl.posiition_info
+    UPDATE lagou_crawl.position_info
     SET job_description='%s'
     WHERE positionId='%s'
     '''
