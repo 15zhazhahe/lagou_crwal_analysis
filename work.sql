@@ -2,7 +2,7 @@
 create database lagou_crawl;
 
 -- 根据excel创建表
-create table posiition_info(
+create table position_info(
 	positionId 			int primary key,
     positionName		varchar(50),
     education			varchar(50),
