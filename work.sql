@@ -4,12 +4,12 @@ create database lagou_crawl;
 -- 根据excel创建表
 create table position_info(
 	positionId 			int primary key,
-    positionName		varchar(50),
-    education			varchar(50),
-    salary				varchar(50),
-    workyear			varchar(50),
-    firstType			varchar(50),
-    secondType			varchar(50),
+	positionName		varchar(50),
+	education			varchar(50),
+	salary				varchar(50),
+	workyear			varchar(50),
+	firstType			varchar(50),
+	secondType			varchar(50),
 	positionLables		varchar(50),
     companyLabelList 	varchar(50),
     companyId			int,
